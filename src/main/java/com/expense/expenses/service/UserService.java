@@ -28,7 +28,7 @@ public class UserService {
 		responseStructure.setMessage("User added successfully");
 		responseStructure.setData(recieveuser);
 		
-		return new ResponseEntity<ResponseStructure<User>>(responseStructure,HttpStatus.OK);
+		return new ResponseEntity<ResponseStructure<User>>(responseStructure,HttpStatus.CREATED);
 	}
 	
 	public ResponseEntity<ResponseStructure<User>> getUserById(long id){

@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.expense.expenses.entity.ExpenseBook;
-import com.expense.expenses.entity.User;
 import com.expense.expenses.repository.ExpenseBookRepository;
-import com.expense.expenses.repository.UserRepository;
 
 @Repository
 public class ExpenseBookDao {
@@ -17,16 +15,10 @@ public class ExpenseBookDao {
 	@Autowired
 	private ExpenseBookRepository expenseBookRepository;
 	
-	 @Autowired
-	    private UserRepository userRepository;
-	
-	public ExpenseBook saveExpenseBook(ExpenseBook expenseBook) {
-		User user = userRepository.findById(expenseBook.getUser().getId()).orElse(null);
-		if (user != null) {
-            expenseBook.setUser(user); 
-        }
-        
-        return expenseBookRepository.save(expenseBook);
+	public ExpenseBook saveExpenseBook(ExpenseBook expenseBook)
+	{
+		expenseBookRepository.save(expenseBook);
+		return expenseBook;
 	}
 	
 	public ExpenseBook getExpenseBookById(long id) {

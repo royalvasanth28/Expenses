@@ -1,7 +1,6 @@
 package com.expense.expenses.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Service;
 import com.expense.expenses.dao.ExpenseBookDao;
 import com.expense.expenses.dto.ResponseStructure;
 import com.expense.expenses.entity.ExpenseBook;
-import com.expense.expenses.entity.ExpenseUser;
 import com.expense.expenses.exception.IdNotFoundException;
 import com.expense.expenses.exception.ResourceNotFoundException;
 
@@ -22,11 +20,12 @@ public class ExpenseBookService {
 	private ExpenseBookDao expenseBookDao;
 	
 	public ResponseEntity<ResponseStructure<ExpenseBook>> saveExpenseBook(ExpenseBook expenseBook){
-		expenseBookDao.saveExpenseBook(expenseBook);
+		ExpenseBook recieveExpenseBook=expenseBookDao.saveExpenseBook(expenseBook);
 		ResponseStructure<ExpenseBook> structure= new ResponseStructure<ExpenseBook>();
+		
 		structure.setStatus(true);
 		structure.setMessage("User saved successfully");
-		structure.setData(expenseBook);
+		structure.setData(recieveExpenseBook);
 		
 		return new ResponseEntity<ResponseStructure<ExpenseBook>>(structure,HttpStatus.CREATED);
 	
