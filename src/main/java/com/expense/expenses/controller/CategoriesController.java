@@ -29,7 +29,7 @@ public class CategoriesController {
 		return categoriesService.saveCategories(categories);
 	}
 	@GetMapping("/{id}")
-	public ResponseEntity<ResponseStructure<Categories>> getCategoriesById(@PathVariable long id){
+	public ResponseEntity<ResponseStructure<Categories>> getCategoriesById(@PathVariable Long id){
 		return categoriesService.getCategoriesById(id);
 	}
 	@GetMapping
@@ -41,7 +41,7 @@ public class CategoriesController {
 		return categoriesService.updateCategories(categories);
 	}
 	@DeleteMapping("/id/{id}")
-	public ResponseEntity<ResponseStructure<Categories>> deleteCategories(@PathVariable long id){
+	public ResponseEntity<ResponseStructure<Categories>> deleteCategories(@PathVariable Long id){
 		return categoriesService.deleteCategories(id);
 	}
 }

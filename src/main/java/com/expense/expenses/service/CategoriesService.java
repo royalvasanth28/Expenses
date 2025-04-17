@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +29,7 @@ public class CategoriesService {
 		return new ResponseEntity<ResponseStructure<Categories>>(structure,HttpStatus.CREATED);
 	}
 	
-	public ResponseEntity<ResponseStructure<Categories>> getCategoriesById(long id){
+	public ResponseEntity<ResponseStructure<Categories>> getCategoriesById(Long id){
 		Categories categories=categoriesDao.getCategoriesById(id);
 		ResponseStructure<Categories> structure = new ResponseStructure<Categories>();
 		if(categories!=null) {
@@ -70,7 +69,7 @@ public class CategoriesService {
 		}
 	}
 	
-	public ResponseEntity<ResponseStructure<Categories>> deleteCategories(long id){
+	public ResponseEntity<ResponseStructure<Categories>> deleteCategories(Long id){
 		Categories categories=categoriesDao.deleteCategories(id);
 		ResponseStructure<Categories> structure = new ResponseStructure<Categories>();
 		if(categories!=null) {

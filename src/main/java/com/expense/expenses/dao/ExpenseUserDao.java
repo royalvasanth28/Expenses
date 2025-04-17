@@ -20,7 +20,7 @@ public class ExpenseUserDao {
 		return expenseUser;
 	}
 	
-	public ExpenseUser getExpenseUserById(long id) {
+	public ExpenseUser getExpenseUserById(Long id) {
 		Optional<ExpenseUser> optional=expenseUserRepository.findById(id);
 		if(optional.isPresent()) {
 			return optional.get();
@@ -36,19 +36,19 @@ public class ExpenseUserDao {
 	public ExpenseUser updateExpenseUser(ExpenseUser expenseUser) {
 		Optional<ExpenseUser> optional = expenseUserRepository.findById(expenseUser.getId());
 		if(optional.isPresent()) {
-			ExpenseUser existingexpenseUser=optional.get();
-			existingexpenseUser.setExpenseBook(expenseUser.getExpenseBook());
-			existingexpenseUser.setUser(expenseUser.getUser());
-			existingexpenseUser.setAmount(expenseUser.getAmount());
-			existingexpenseUser.setUpdatedAt(expenseUser.getUpdatedAt());
+			ExpenseUser existingExpenseUser=optional.get();
+			existingExpenseUser.setExpenseBook(expenseUser.getExpenseBook());
+			existingExpenseUser.setUser(expenseUser.getUser());
+			existingExpenseUser.setAmount(expenseUser.getAmount());
+			existingExpenseUser.setUpdatedAt(expenseUser.getUpdatedAt());
 			
-			return expenseUserRepository.save(existingexpenseUser);
+			return expenseUserRepository.save(existingExpenseUser);
 		}else {
 			return null;
 		}
 	}
 	
-	public ExpenseUser deleteExpenseUser(long id) {
+	public ExpenseUser deleteExpenseUser(Long id) {
 		Optional<ExpenseUser> optional= expenseUserRepository.findById(id);
 		if(optional.isPresent()) {
 			expenseUserRepository.delete(optional.get());

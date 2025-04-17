@@ -21,7 +21,7 @@ public class ExpenseBookDao {
 		return expenseBook;
 	}
 	
-	public ExpenseBook getExpenseBookById(long id) {
+	public ExpenseBook getExpenseBookById(Long id) {
 		Optional<ExpenseBook> optional=expenseBookRepository.findById(id);
 		if(optional.isPresent()) {
 			return optional.get();
@@ -34,7 +34,7 @@ public class ExpenseBookDao {
 		return expenseBookRepository.findAll();
 	}
 	
-	public ExpenseBook updateExpenceBook(ExpenseBook expenseBook) {
+	public ExpenseBook updateExpenseBook(ExpenseBook expenseBook) {
 		Optional<ExpenseBook> optional=expenseBookRepository.findById(expenseBook.getId());
 		if(optional.isPresent()) {
 			ExpenseBook existingExpenseBook=optional.get();
@@ -49,7 +49,7 @@ public class ExpenseBookDao {
 		}
 	}
 
-	public ExpenseBook deleteExpenseBook(long id) {
+	public ExpenseBook deleteExpenseBook(Long id) {
 		Optional<ExpenseBook> optional=expenseBookRepository.findById(id);
 		if(optional.isPresent()) {
 			expenseBookRepository.delete(optional.get());

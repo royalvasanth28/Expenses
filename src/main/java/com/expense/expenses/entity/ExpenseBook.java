@@ -1,6 +1,5 @@
 package com.expense.expenses.entity;
 
-
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -10,7 +9,6 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -35,15 +33,15 @@ public class ExpenseBook {
 	private LocalDateTime deletedAt;
 	
 	@JsonBackReference
-	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
 	private User user;
 	
-	@OneToMany(mappedBy = "expenseBook", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "expenseBook", cascade = CascadeType.ALL)
 	@JsonManagedReference
 	private List<Categories> categories;
 	
-	@OneToMany(mappedBy = "expenseBook",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "expenseBook",cascade = CascadeType.ALL)
 	@JsonManagedReference
 	private List<ExpenseUser> expenseUsers;
 

@@ -20,7 +20,7 @@ public class CategoriesDao {
 		return categories;
 	}
 	
-	public Categories getCategoriesById(long id) {
+	public Categories getCategoriesById(Long id) {
 		Optional<Categories> optional=categoriesRepository.findById(id);
 		if(optional.isPresent()) {
 			return optional.get();
@@ -47,7 +47,7 @@ public class CategoriesDao {
 		}
 	}
 	
-	public Categories deleteCategories(long id) {
+	public Categories deleteCategories(Long id) {
 		Optional<Categories> optional=categoriesRepository.findById(id);
 		if(optional.isPresent()) {
 			categoriesRepository.delete(optional.get());

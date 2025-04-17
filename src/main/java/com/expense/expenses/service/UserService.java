@@ -21,17 +21,17 @@ public class UserService {
 	private UserDao userDao;
 	
 	public ResponseEntity<ResponseStructure<User>> addUser(User user){
-		User recieveuser=userDao.addUser(user);
+		User recieveUser=userDao.addUser(user);
 		ResponseStructure<User> responseStructure=new ResponseStructure<User>();
 		
 		responseStructure.setStatus(true);
 		responseStructure.setMessage("User added successfully");
-		responseStructure.setData(recieveuser);
+		responseStructure.setData(recieveUser);
 		
 		return new ResponseEntity<ResponseStructure<User>>(responseStructure,HttpStatus.CREATED);
 	}
 	
-	public ResponseEntity<ResponseStructure<User>> getUserById(long id){
+	public ResponseEntity<ResponseStructure<User>> getUserById(Long id){
 		User user=userDao.getUserById(id);
 		ResponseStructure<User> responseStructure=new ResponseStructure<User>();
 		
@@ -78,7 +78,7 @@ public class UserService {
 		
 	}
 	
-	public ResponseEntity<ResponseStructure<User>> deleteUser(long id){
+	public ResponseEntity<ResponseStructure<User>> deleteUser(Long id){
 		User user=userDao.deleteUser(id);
 		ResponseStructure<User> responseStructure = new ResponseStructure<User>();
 		

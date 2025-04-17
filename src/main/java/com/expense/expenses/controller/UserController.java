@@ -29,7 +29,7 @@ public class UserController {
 		return userService.addUser(user);
 	}
 	@GetMapping("/{id}")
-	public ResponseEntity<ResponseStructure<User>> getUserById(@PathVariable long id){
+	public ResponseEntity<ResponseStructure<User>> getUserById(@PathVariable Long id){
 		return userService.getUserById(id);
 	}
 	@GetMapping
@@ -41,7 +41,7 @@ public class UserController {
 		return userService.updateUser(user);
 	}
 	@DeleteMapping("/id/{id}")
-	public ResponseEntity<ResponseStructure<User>> deleteUser(@PathVariable long id){
+	public ResponseEntity<ResponseStructure<User>> deleteUser(@PathVariable Long id){
 		return userService.deleteUser(id);
 	}
 }

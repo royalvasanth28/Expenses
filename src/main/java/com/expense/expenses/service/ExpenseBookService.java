@@ -31,7 +31,7 @@ public class ExpenseBookService {
 	
 	}
 	
-	public ResponseEntity<ResponseStructure<ExpenseBook>> getExpenseBookById(long id){
+	public ResponseEntity<ResponseStructure<ExpenseBook>> getExpenseBookById(Long id){
 		ExpenseBook expenseBook=expenseBookDao.getExpenseBookById(id);
 		ResponseStructure<ExpenseBook> structure = new ResponseStructure<ExpenseBook>();
 		if(expenseBook!=null) {
@@ -60,7 +60,7 @@ public class ExpenseBookService {
 	}
 	
 	public ResponseEntity<ResponseStructure<ExpenseBook>> updateExpenseBook(ExpenseBook expenseBook){
-		ExpenseBook book=expenseBookDao.updateExpenceBook(expenseBook);
+		ExpenseBook book=expenseBookDao.updateExpenseBook(expenseBook);
 		ResponseStructure<ExpenseBook> structure = new ResponseStructure<ExpenseBook>();
 		
 		if(book!=null) {
@@ -73,13 +73,13 @@ public class ExpenseBookService {
 		}
 	}
 
-	public ResponseEntity<ResponseStructure<ExpenseBook>> deleteExpenseBook(long id){
+	public ResponseEntity<ResponseStructure<ExpenseBook>> deleteExpenseBook(Long id){
 		ExpenseBook book=expenseBookDao.deleteExpenseBook(id);
 		if(book!=null) {
 			ResponseStructure<ExpenseBook> structure=new ResponseStructure<ExpenseBook>();
 			structure.setStatus(true);
 			structure.setMessage("ExpenseUser deleted successfully");
-			structure.setData(null);
+			structure.setData(book);
 			
 			return new ResponseEntity<ResponseStructure<ExpenseBook>>(structure,HttpStatus.OK);
 		}else {

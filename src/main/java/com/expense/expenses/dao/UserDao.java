@@ -20,7 +20,7 @@ public class UserDao {
 		return user;
 	}
 	
-	public User getUserById(long id) {
+	public User getUserById(Long id) {
 		Optional<User> user=userRepository.findById(id);
 		if(user.isPresent()) {
 			return user.get();
@@ -49,7 +49,7 @@ public class UserDao {
 	    }
 	}
 	
-	public User deleteUser(long id) {
+	public User deleteUser(Long id) {
 		Optional<User> optional=userRepository.findById(id);
 		if(optional.isPresent()) {
 			userRepository.delete(optional.get());

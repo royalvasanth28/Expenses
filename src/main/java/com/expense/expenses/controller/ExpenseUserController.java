@@ -29,7 +29,7 @@ public class ExpenseUserController {
 		return expenseUserService.addExpenseUser(expenseUser);
 	}
 	@GetMapping("/{id}")
-	public ResponseEntity<ResponseStructure<ExpenseUser>> getExpenseUserById(@PathVariable long id){
+	public ResponseEntity<ResponseStructure<ExpenseUser>> getExpenseUserById(@PathVariable Long id){
 		return expenseUserService.getExpenseUserById(id);
 	}
 	@GetMapping
@@ -37,11 +37,11 @@ public class ExpenseUserController {
 		return expenseUserService.getAllExpenseUser();
 	}
 	@PutMapping
-	public ResponseEntity<ResponseStructure<ExpenseUser>> updateExpenseUser(ExpenseUser expenseUser){
+	public ResponseEntity<ResponseStructure<ExpenseUser>> updateExpenseUser(@RequestBody ExpenseUser expenseUser){
 		return expenseUserService.updateExpenseUser(expenseUser);
 	}
 	@DeleteMapping("/id/{id}")
-	public ResponseEntity<ResponseStructure<ExpenseUser>> deleteExpenseUser(@PathVariable long id){
+	public ResponseEntity<ResponseStructure<ExpenseUser>> deleteExpenseUser(@PathVariable Long id){
 		return expenseUserService.deleteExpenseUser(id);
 	}
 }

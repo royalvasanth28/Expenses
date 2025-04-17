@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +29,7 @@ public class ExpenseUserService {
 		return new ResponseEntity<ResponseStructure<ExpenseUser>>(structure,HttpStatus.CREATED);
 	}
 	
-	public ResponseEntity<ResponseStructure<ExpenseUser>> getExpenseUserById(long id){
+	public ResponseEntity<ResponseStructure<ExpenseUser>> getExpenseUserById(Long id){
 		ExpenseUser expenseUser=expenseUserDao.getExpenseUserById(id);
 		ResponseStructure<ExpenseUser> structure = new ResponseStructure<ExpenseUser>();
 		if(expenseUser!=null) {
@@ -71,11 +70,11 @@ public class ExpenseUserService {
 		}
 	}
 	
-	public ResponseEntity<ResponseStructure<ExpenseUser>> deleteExpenseUser(long id){
+	public ResponseEntity<ResponseStructure<ExpenseUser>> deleteExpenseUser(Long id){
 		ExpenseUser expenseUser=expenseUserDao.deleteExpenseUser(id);
 		ResponseStructure<ExpenseUser> structure = new ResponseStructure<ExpenseUser>();
 		
-		if(structure!=null) {
+		if(expenseUser!=null) {
 			structure.setStatus(true);
 			structure.setMessage("ExpenseUser Deleted successfully");
 			structure.setData(expenseUser);

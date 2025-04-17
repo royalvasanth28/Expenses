@@ -16,7 +16,7 @@ import jakarta.persistence.ManyToOne;
 public class Categories {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	@Column(name = "category_name")
 	private String categoryName;
 	private String description;
@@ -32,11 +32,11 @@ public class Categories {
 	@JsonBackReference
 	private ExpenseBook expenseBook;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
